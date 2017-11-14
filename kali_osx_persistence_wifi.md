@@ -107,13 +107,15 @@ $ apt-get install linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,')
 
 **Install kernel headers**
 
+These need to be obtained separately:
+
 ```bash
 $ wget http://http.kali.org/kali/pool/main/l/linux/linux-kbuild-<VERSION>_amd64.deb
 $ wget http://http.kali.org/kali/pool/main/l/linux/linux-headers-<VERSION>-common_<VERSION>_amd64.deb
 $ wget http://http.kali.org/kali/pool/main/l/linux/linux-headers-<VERSION>-amd64_<VERSION>_amd64.deb
-dpkg -i linux-kbuild-<VERSION>_amd64.deb
-dpkg -i linux-headers-<VERSION>-common_<VERSION>_amd64.deb
-dpkg -i linux-headers-<VERSION>-amd64_<VERSION>_amd64.deb
+$ dpkg -i linux-kbuild-<VERSION>_amd64.deb
+$ dpkg -i linux-headers-<VERSION>-common_<VERSION>_amd64.deb
+$ dpkg -i linux-headers-<VERSION>-amd64_<VERSION>_amd64.deb
 ```
 
 **Install the Broadcom drivers**
