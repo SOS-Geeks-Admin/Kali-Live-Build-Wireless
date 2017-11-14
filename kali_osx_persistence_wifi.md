@@ -37,19 +37,30 @@ $ shasum -a 256 kali-linux-2017-W46-amd64.iso
 
 Identify your external USB with `diskutil` - the disk ID (`disk2`, `disk3` etc is represented as `<DISK>` below):
 
-* `diskutil list`
+
+```bash
+$ diskutil list
+```
 
 If necessary, prep the external USB with `diskutil` to get a single partition:
 
-* `diskutil eraseDisk FAT32 KALI /dev/<DISK>`
+
+```bash
+$ diskutil eraseDisk FAT32 KALI /dev/<DISK>
+```
 
 Unmount the volume in DIsk Utility, or at the command-line:
 
-* `diskutil unmountDisk /dev/<DISK>`
+
+```bash
+$ diskutil unmountDisk /dev/<DISK>
+```
 
 Then use `dd` to make a bootable image on the USB:
 
-* `sudo dd if=<path to downloaded .iso> of=/dev/<DISK> bs=1m`
+```bash
+$ sudo dd if=<path to downloaded .iso> of=/dev/<DISK> bs=1m
+```
 
 **Boot into Kali Linux**
 
@@ -77,13 +88,17 @@ Then use `dd` to make a bootable image on the USB:
 
 Create a mount point for the persistence particion, and mount it
 
-* `mkdir -p /mnt/my_usb`
-* `mount <DISK> /mnt/my_usb`
+```bash
+$ mkdir -p /mnt/my_usb
+$ mount <DISK> /mnt/my_usb
+```
 
-Create a `partition.conf` file. This will control persistence on USB startup
+Create a `partition.conf` file. This will enable the persistent storage on USB startup
 
-* `echo "/ union" > /mnt/my_usb/persistence.conf`
-* `umount <DISK>`
+```bash
+$ echo "/ union" > /mnt/my_usb/persistence.conf
+$ umount <DISK>
+```
 
 **Check the persistent partition**
 
@@ -128,7 +143,7 @@ apt-get install broadcom-sta-dkms
 
 ```bash
 $ modprobe -r b44 b43 b43legacy ssb brcmsmac bcma
-modprobe wl
+$ modprobe wl
 ```
 
 **Enable network-manager**
